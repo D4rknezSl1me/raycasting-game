@@ -1,4 +1,5 @@
 import pygame as pg
+from settings import *
 
 _ = False
 
@@ -28,5 +29,5 @@ class Map:
                     self.world_map[(i, j)] = value
     
     def draw(self):
-        [pg.draw.rect(self.game.screen, 'dark grey', (pos[0]*80, pos[1]*80,80,80),2)
+        [pg.draw.rect(self.game.screen, 'dark grey', (pos[0]*CHUNK_SIZE, pos[1]*CHUNK_SIZE,CHUNK_SIZE,CHUNK_SIZE),2)
          for pos in self.world_map]

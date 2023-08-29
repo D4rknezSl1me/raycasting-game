@@ -48,8 +48,8 @@ class Player:
             self.y += dy
 
     def draw(self):
-        pg.draw.line(self.game.screen, 'yellow', (self.x * 80, self.y*80), (self.x*80 + WIDTH*math.cos(self.angle), self.y*80+WIDTH*math.sin(self.angle)), 2)
-        pg.draw.circle(self.game.screen, 'green', (self.x * 80, self.y*80), 15)
+        # pg.draw.line(self.game.screen, 'yellow', (self.x * CHUNK_SIZE, self.y*CHUNK_SIZE), (self.x*CHUNK_SIZE + WIDTH*math.cos(self.angle), self.y*CHUNK_SIZE+WIDTH*math.sin(self.angle)), 2)
+        pg.draw.circle(self.game.screen, 'green', (self.x * CHUNK_SIZE, self.y*CHUNK_SIZE), 15)
 
     def update(self):
         self.movement()
