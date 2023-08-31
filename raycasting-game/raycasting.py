@@ -52,8 +52,18 @@ class RayCasting:
             # actual ray depth
             depth = depth_vert if (depth_vert<depth_hor) else depth_hor
 
+            # fix Fish Eye effect
+            depth *= math.cos(self.game.player.angle - ray_angle)
+
+            # Real size projection on screen
+            proj_height = SCREEN_DIST/(depth+0.0001)
+
+            # draw walls
+            color = [(255/(1+depth**5*GAMMA))%256]*3
+            pg.draw.rect(self.game.screen, color, (ray*SCALE, HALF_HEIGHT-proj_height//2, SCALE, proj_height))
+
             # debugging
-            pg.draw.line(self.game.screen, 'yellow', (CHUNK_SIZE*ox, CHUNK_SIZE*oy),(CHUNK_SIZE*ox+CHUNK_SIZE*depth*cos_a, CHUNK_SIZE*oy+CHUNK_SIZE*depth*sin_a), 2)
+            # pg.draw.line(self.game.screen, 'yellow', (CHUNK_SIZE*ox, CHUNK_SIZE*oy),(CHUNK_SIZE*ox+CHUNK_SIZE*depth*cos_a, CHUNK_SIZE*oy+CHUNK_SIZE*depth*sin_a), 2)
 
             ray_angle += DELTA_ANGLE
     
