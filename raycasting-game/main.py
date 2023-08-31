@@ -6,6 +6,8 @@ from player import *
 from raycasting import *
 from object_renderer import *
 
+# The vscode web app is cool!
+
 class Main:
     def __init__(self):
         pg.init()
