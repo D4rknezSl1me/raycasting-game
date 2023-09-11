@@ -36,5 +36,7 @@ class ObjectRenderer:
         return {
             1: self.get_texture('resources/textures/1.jpg'),
             2: self.get_texture('resources/textures/2.jpg'),
-            3: self.get_texture('resources/textures/3.jpg')
+            3: self.get_texture('resources/textures/3.jpg'),
+            4: self.get_texture('resources/textures/3.png'),
+            5: self.get_texture('resources/textures/3.png'),
         }
